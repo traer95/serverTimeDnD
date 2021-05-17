@@ -27,3 +27,9 @@ function srvTime(){
 
 var st = srvTime();
 var date = new Date(st);
+
+function clickCountdown() {
+    const set = 15;
+
+
+}
