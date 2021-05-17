@@ -71,9 +71,8 @@ start
         //audio.play();
         var sign = document.getElementById("sign")
 
-        if (current_time.getSeconds() === 0 || 20|| 40 ){
+        if (current_time.getSeconds() === 0 ){
             sign.style.backgroundColor="green";
-            console.log(current_time.getSeconds().toString() + " " + typeof current_time.getSeconds().toString())
         } else {
             sign.style.backgroundColor = "red";
         }
