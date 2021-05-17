@@ -19,14 +19,14 @@ function srvTime(){
             }
         }
     }
-    xmlHttp.open('HEAD',window.location.href.toString(),true);
+    xmlHttp.open('HEAD',window.location.href.toString(),false);
     xmlHttp.setRequestHeader("Content-Type", "text/html");
     xmlHttp.send('');
     return xmlHttp.getResponseHeader("Date");
 }
 
-var st = srvTime();
-var date = new Date(st);
+//var st = srvTime();
+//var date = new Date(st);
 
 function clickCountdown() {
     const set = 15;
