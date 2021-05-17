@@ -18,20 +18,32 @@ start
     var start_time;
     var current_time;
     var get_time = function () {
-        let options = {
-                timeZone: 'Europe/Berlin',
-                year: 'numeric',
-                month: 'numeric',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-            },
-            formatter = new Intl.DateTimeFormat([], options);
+        try {
+            //FF, Opera, Safari, Chrome
+            xmlHttp = new XMLHttpRequest();
+        }
+        catch (err1) {
+            //IE
+            try {
+                xmlHttp = new ActiveXObject('Msxml2.XMLHTTP');
+            }
+            catch (err2) {
+                try {
+                    xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+                catch (eerr3) {
+                    //AJAX not supported, use CPU time.
+                    alert("AJAX not supported");
+                }
+            }
+        }
+        xmlHttp.open('HEAD',window.location.href.toString(),false);
+        xmlHttp.setRequestHeader("Content-Type", "text/html");
+        xmlHttp.send('');
+        return xmlHttp.getResponseHeader("Date");
 
-        dummy =  formatter.format(new Date());
-
-        start_time = new Date();
+        var st = srvTime();
+        start_time = new Date(st);
         //console.log("dummy is: " + dummy+ " " +  new Date(dummy.year, dummy.month, dummy.day));
 
         document.getElementById("display").innerHTML ="Server time is: " + current_time;
