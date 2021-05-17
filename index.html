@@ -70,9 +70,10 @@ start
         //var audio = new Audio('beep.wav');
         //audio.play();
         var sign = document.getElementById("sign")
-        console.log(current_time.getSeconds().toString() + " " + typeof current_time.getSeconds().toString())
+
         if (current_time.getSeconds().toString() === "0" || "20"|| "40" ){
             sign.style.backgroundColor="green";
+            console.log(current_time.getSeconds().toString() + " " + typeof current_time.getSeconds().toString())
         } else {
             sign.style.backgroundColor = "red"
         }
