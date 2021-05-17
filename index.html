@@ -10,7 +10,7 @@
 <div id="display">
 start
 </div>
-<div id="sign" style="width: 300px; height: 300px; background-color: green; ">
+<div id="sign" style="width: 300px; height: 300px; background-color: red; ">
 
 </div>
 </body>
@@ -70,10 +70,10 @@ start
         //var audio = new Audio('beep.wav');
         //audio.play();
         var sign = document.getElementById("sign")
-        if (sign.style.backgroundColor === "green"){
-            sign.style.backgroundColor="red";
+        if (current_time.getSeconds() === 0 || 20 || 40 ){
+            sign.style.backgroundColor="green";
         } else {
-            sign.style.backgroundColor = "green"
+            sign.style.backgroundColor = "red"
         }
 
     };
