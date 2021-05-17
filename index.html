@@ -20,6 +20,9 @@ start
     //var date;
     var start_time;
     var current_time;
+
+    var counter = 0;
+
     var get_time = function () {
         try {
             //FF, Opera, Safari, Chrome
@@ -63,7 +66,7 @@ start
     //console.log(+Date.now() + timeDiff);
     //}, 100);
 
-    var counter = 2;
+
 
     var cnt_time = function () {
         current_time = new Date(start_time.getTime() + 250);
