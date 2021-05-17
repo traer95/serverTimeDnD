@@ -9,6 +9,8 @@
     //var localTime = new Date();
     //document.write("Local machine time is: " + localTime + "<br>");
     setInterval(function () {
+        var st = srvTime();
+        var date = new Date(st);
         console.log(date);
         document.getElementById("display").innerHTML ="Server time is: " + date;
         //console.log(+Date.now() + timeDiff);
