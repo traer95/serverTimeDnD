@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Server date/time</title>
+    <title>Timesync for DnD</title>
     <script language="javascript" src="serverTime.js"></script>
 </head>
 <script language="javascript">
-    var localTime = new Date();
+    //var localTime = new Date();
     //document.write("Local machine time is: " + localTime + "<br>");
     setInterval(function () {
+        console.log(date);
         document.getElementById("display").innerHTML ="Server time is: " + date;
         //console.log(+Date.now() + timeDiff);
     }, 1000);
 
 </script>
 <body>
-<span id="display">
+<div id="display">
 
-</span>
+</div>
 </body>
 </html>
