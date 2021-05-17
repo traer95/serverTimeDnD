@@ -4,30 +4,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Timesync for DnD</title>
     <script language="javascript" src="serverTime.js"></script>
-</head>
-<script language="javascript">
-    //var localTime = new Date();
-    //document.write("Local machine time is: " + localTime + "<br>");
-    setInterval(function () {
+    <script language="javascript">
+        //document.write("Local machine time is: " + localTime + "<br>");
         let options = {
-            timeZone: 'Europe/Berlin',
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric',
-        },
-        formatter = new Intl.DateTimeFormat([], options);
-        //var st = srvTime();
-        var date =  formatter.format(new Date());
-        //var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-        //console.log("why: "+date);
-        document.getElementById("display").innerHTML ="Server time is: " + date;
-        //console.log(+Date.now() + timeDiff);
-    }, 100);
+                timeZone: 'Europe/Berlin',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+            },
+            formatter = new Intl.DateTimeFormat([], options);
+        //var localTime = new Date();
+        setInterval(function () {
+            //var st = srvTime();
+            var date =  formatter.format(new Date());
+            //var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+            //console.log("why: "+date);
+            document.getElementById("display").innerHTML ="Server time is: " + date;
+            //console.log(+Date.now() + timeDiff);
+        }, 100);
 
 
 
 
-</script>
+    </script>
+</head>
 <body>
 <div id="display">
 
