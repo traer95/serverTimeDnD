@@ -41,13 +41,13 @@ start
         xmlHttp.setRequestHeader("Content-Type", "text/html");
         xmlHttp.send('');
         return xmlHttp.getResponseHeader("Date");
-
+    };
         var st = srvTime();
         start_time = new Date(st);
         //console.log("dummy is: " + dummy+ " " +  new Date(dummy.year, dummy.month, dummy.day));
 
         document.getElementById("display").innerHTML ="Server time is: " + current_time;
-    };
+
 
 
     //var localTime = new Date();
