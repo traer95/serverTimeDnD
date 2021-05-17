@@ -9,11 +9,14 @@
     var localTime = new Date();
     //document.write("Local machine time is: " + localTime + "<br>");
     setInterval(function () {
-        document.write("Server time is: " + date);
+        document.getElementById("display").innerHTML ="Server time is: " + date;
         //console.log(+Date.now() + timeDiff);
     }, 1000);
 
 </script>
 <body>
+<span id="display">
+
+</span>
 </body>
 </html>
