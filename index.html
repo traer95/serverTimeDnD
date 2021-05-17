@@ -63,6 +63,8 @@ start
     //console.log(+Date.now() + timeDiff);
     //}, 100);
 
+    var counter = 2;
+
     var cnt_time = function () {
         current_time = new Date(start_time.getTime() + 250);
         document.getElementById("display").innerHTML ="Server time is: " + current_time;
@@ -76,6 +78,11 @@ start
             audio.play();
         } else {
             sign.style.backgroundColor = "red";
+        }
+
+        if (counter < 3){
+            counter ++;
+            location.reload();
         }
 
     };
