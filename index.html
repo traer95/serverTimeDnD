@@ -10,6 +10,9 @@
 <div id="display">
 start
 </div>
+<span id="sign" style="width: 300px; height: 300px">
+
+</span>
 </body>
 
 <script language="javascript">
@@ -64,8 +67,15 @@ start
         current_time = new Date(start_time.getTime() + 250);
         document.getElementById("display").innerHTML ="Server time is: " + current_time;
         start_time = current_time;
-        var audio = new Audio('beep.wav');
-        audio.play();
+        //var audio = new Audio('beep.wav');
+        //audio.play();
+        var sign = document.getElementById("sign")
+        if (sign.style.color === "green"){
+            sign.style.color="red";
+        } else {
+            sign.style.color = "green"
+        }
+
     };
 
     setInterval(cnt_time, 250);
