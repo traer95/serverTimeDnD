@@ -1,67 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Simple Ajax Clock</title>
-    <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #wrapper {
-            width: 100%;
-        }
-
-        #clock {
-            width: 50%;
-            min-height: 100px;
-            margin: 50px auto;
-            text-align: center;
-            font-size: 85px;
-        }
-    </style>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript">
-        var start_time;
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Timesync for DnD</title>
+    <script language="javascript" src="serverTime.js"></script>
+    <script language="javascript">
+        //document.write("Local machine time is: " + localTime + "<br>");
+        var date;
         var current_time;
-
-        //gets current server time
         var get_time = function () {
-            $.ajax({
-                type: 'GET',
-                url: 'clock.php',
-                data: ({ action : 'get_time' }),
-                success: (function (data) {
-                    start_time = new Date(
-                        data.year,
-                        data.month,
-                        data.day,
-                        data.hour,
-                        data.minute,
-                        data.second
-                    );
-                    $('#clock').html(current_time.toLocaleTimeString());
-                }),
-                dataType: 'json'
-            });
-        }
+            let options = {
+                    timeZone: 'Europe/Berlin',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                },
+                formatter = new Intl.DateTimeFormat([], options);
 
-        //counts 0.25s
+            date =  formatter.format(new Date());
+            document.getElementById("display").innerHTML ="Server time is: " + date;
+        };
+
+
+        //var localTime = new Date();
+        //setInterval(function () {
+            //var st = srvTime();
+
+            //var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+            //console.log("why: "+date);
+
+            //console.log(+Date.now() + timeDiff);
+        //}, 100);
+
         var cnt_time = function () {
-            current_time = new Date(start_time.getTime() + 250);
-            $('#clock').html(current_time.toLocaleTimeString());
-            start_time = current_time;
-        }
+            current_time = date.getTime() + 250;
+            document.getElementById("display").innerHTML ="Server time is: " + current_time;
+            date = current_time;
+        };
 
-        setInterval(cnt_time, 250); //add 250ms to current time every 250ms
-        setInterval(get_time, 30250); //sync with server every 30,25 second
-        get_time();
+        setInterval(cnt_time, 250);
+        setInterval(get_time,30250);
+        get_time()
+
     </script>
 </head>
 <body>
-<div id="wrapper">
-    <div id="clock"></div>
+<div id="display">
+
 </div>
 </body>
 </html>
