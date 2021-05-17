@@ -49,9 +49,9 @@ start
     //}, 100);
 
     var cnt_time = function () {
-        current_time = new Date(start_time + 250);
+        current_time = new Date(start_time.getTime() + 250);
         document.getElementById("display").innerHTML ="Server time is: " + current_time;
-        date = current_time;
+        start_time = current_time;
     };
 
     setInterval(cnt_time, 250);
