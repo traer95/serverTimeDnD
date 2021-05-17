@@ -64,11 +64,14 @@ start
         current_time = new Date(start_time.getTime() + 250);
         document.getElementById("display").innerHTML ="Server time is: " + current_time;
         start_time = current_time;
+        var audio = new Audio('beep.wav');
+        audio.play();
     };
 
     setInterval(cnt_time, 250);
     setInterval(get_time,30250);
     get_time();
+
 
 </script>
 </html>
