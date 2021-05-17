@@ -67,12 +67,13 @@ start
         current_time = new Date(start_time.getTime() + 250);
         document.getElementById("display").innerHTML ="Server time is: " + current_time;
         start_time = current_time;
-        //var audio = new Audio('beep.wav');
-        //audio.play();
+
         var sign = document.getElementById("sign")
 
         if (current_time.getSeconds() == 0 || 20 || 40){
             sign.style.backgroundColor="green";
+            var audio = new Audio('beep.wav');
+            audio.play();
         } else {
             sign.style.backgroundColor = "red";
         }
